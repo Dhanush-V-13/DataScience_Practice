@@ -1,0 +1,22 @@
+create database school_db;
+use school_db;
+create table students(id int , name varchar(50), age int );
+ 
+create database company_db;
+use company_db;
+create table employees(emp_id int , emp_name varchar(50), 
+salary decimal(10,2),department varchar(50));
+
+
+create table products(product_id int , product_name varchar(100), 
+price float);
+
+create database library_db;
+use library_db;
+create table orders( order_id int, customer_name varchar(100),
+order_date date, ammount decimal(10,2));
+
+create database college_db;
+use college_db;
+create table courses(course_id int, course_name varchar(100),
+ duration int );
