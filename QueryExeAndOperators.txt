@@ -1,0 +1,97 @@
+show databases;
+use company_db;
+show tables;
+select * from products;
+alter table products 
+add discount int,
+add stock_quantity int;
+
+INSERT INTO products (product_id, product_name, price, discount, stock_quantity) VALUES
+(1, 'Laptop', 55000, 10, 15),
+(2, 'Smartphone', 25000, 5, 30),
+(3, 'Headphones', 2000, 15, 50),
+(4, 'Keyboard', 1200, 10, 40),
+(5, 'Mouse', 800, 5, 60),
+(6, 'Monitor', 15000, 12, 20),
+(7, 'Printer', 7000, 8, 10),
+(8, 'Tablet', 18000, 7, 25),
+(9, 'Smartwatch', 5000, 10, 35),
+(10, 'Speaker', 3000, 20, 45),
+(11, 'Router', 2500, 5, 30),
+(12, 'External HDD', 6000, 10, 18),
+(13, 'USB Drive', 500, 2, 100),
+(14, 'Power Bank', 1500, 8, 55),
+(15, 'Webcam', 2200, 6, 22),
+(16, 'Microphone', 3500, 12, 28),
+(17, 'Gaming Chair', 12000, 15, 12),
+(18, 'Desk Lamp', 900, 5, 70),
+(19, 'Graphics Card', 45000, 18, 8),
+(20, 'SSD', 8000, 10, 25);
+select * from employees;
+
+ 
+ 
+ alter table employees
+ rename column emp_name to name,
+ rename column salary to monthly_salary,
+ add bonus_precent int;
+ 
+select product_id,product_name,(price * stock_quantity) as Total_Value
+from products;
+ 
+ select product_name, (price-50) as AfterdDiscount
+ from products;
+ 
+ select product_name, (price *1.10) as new_price
+ from products;
+ alter table employees
+ rename column bonus_precent to bonus_percent;
+ 
+ INSERT INTO employees (emp_id, name, monthly_salary, department, bonus_percent) VALUES
+(101, 'Ramesh', 45000, 'HR', 10),
+(102, 'Suresh', 55000, 'Finance', 12),
+(103, 'Mahesh', 60000, 'IT', 15),
+(104, 'Anita', 48000, 'HR', 8),
+(105, 'Kiran', 70000, 'IT', 20),
+(106, 'Priya', 52000, 'Marketing', 10),
+(107, 'Rahul', 65000, 'Finance', 14),
+(108, 'Sneha', 47000, 'Marketing', 9),
+(109, 'Arjun', 75000, 'IT', 18),
+(110, 'Pooja', 50000, 'HR', 11),
+(111, 'Vikram', 68000, 'Finance', 16),
+(112, 'Divya', 54000, 'Marketing', 10),
+(113, 'Ravi', 62000, 'IT', 13),
+(114, 'Neha', 46000, 'HR', 7),
+(115, 'Amit', 72000, 'Finance', 17),
+(116, 'Kavya', 51000, 'Marketing', 9),
+(117, 'Suraj', 58000, 'IT', 12),
+(118, 'Meena', 49000, 'HR', 8),
+(119, 'Tarun', 67000, 'Finance', 15),
+(120, 'Nisha', 53000, 'Marketing', 10);
+
+select * from employees;
+
+select emp_id,name,(monthly_salary * 12)  as annual_sal
+from employees;
+
+select emp_id,name,monthly_salary,bonus_percent,
+(monthly_salary * (bonus_percent/100))  as Bonus_Amount 
+from employees;
+ 
+ select * from products
+ where product_id%2 = 0;
+ 
+ select *,(product_id%2) as EvenOrOdd from products;
+ 
+ select product_name,stock_quantity,(stock_quantity/4) as SharedStock
+ from products;
+ 
+select product_name,price,(price-200) as Profit
+from products;
+
+select emp_id,name,(monthly_salary + 2000) as Total_Compensation
+from employees;
+
+select *,((price*50) - 3000) as BULKORDERdiscount
+from products;
+ 
