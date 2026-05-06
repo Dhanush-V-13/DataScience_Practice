@@ -1,0 +1,106 @@
+use company_db;
+show tables;
+desc products;
+
+select * from products;
+select product_id, product_name,price
+from products
+where price = 500;
+
+select product_id, product_name,stock_quantity
+from products
+where stock_quantity < 10;
+
+select product_id, product_name,price
+from products
+where price > 1000;
+
+select product_id, product_name,price
+from products
+where price <= 4000;
+
+select product_id, product_name,stock_quantity
+from products
+where stock_quantity > 20;
+
+select product_id, product_name
+from products
+where product_name != 'pen';
+
+desc employees;
+alter table employees
+add city varchar(30);
+select * from employees;
+
+set sql_safe_updates = 0;
+update employees
+set department='sales'
+where emp_id in (106,108,112,116,120);
+
+select emp_id, name, monthly_salary,department
+from employees
+where department = 'sales' and monthly_salary > 40000 ;
+
+update employees
+set city = 'Hyderabad'
+where emp_id%2 = 0 ;
+
+select  emp_id, name  from employees
+where city = 'Hyderabad' or monthly_salary > 60000;
+
+update employees
+set city = 'Banglore'
+where emp_id%2 <> 0 ;
+
+select * from employees
+where department NOT IN ('Finance');
+
+show tables;
+create table students(name varchar(30), city varchar(30), marks int, email varchar(50));
+alter table students 
+add id int not null;
+INSERT INTO students (id, name, city, marks, email) VALUES
+(1, 'Amit', 'Mumbai', 85, 'amit@gmail.com'),
+(2, 'Neha', 'Delhi', 78, 'neha@gmail.com'),
+(3, 'Rahul', 'Pune', 92, 'rahul@gmail.com'),
+(4, 'Sneha', 'Kolkata', 74, 'sneha@gmail.com'),
+(5, 'Kiran', 'Chennai', 88, 'kiran@gmail.com'),
+(6, 'Ravi', 'Mumbai', 69, 'ravi@gmail.com'),
+(7, 'Pooja', 'Delhi', 81, 'pooja@gmail.com'),
+(8, 'Arjun', 'Pune', 95, 'arjun@gmail.com'),
+(9, 'Meena', 'Kolkata', 72, 'meena@gmail.com'),
+(10, 'Vikram', 'Chennai', 84, 'vikram@gmail.com'),
+(11, 'Divya', 'Mumbai', 90, 'divya@gmail.com'),
+(12, 'Suraj', 'Delhi', 67, 'suraj@gmail.com'),
+(13, 'Anita', 'Pune', 79, 'anita@gmail.com'),
+(14, 'Tarun', 'Kolkata', 83, 'tarun@gmail.com'),
+(15, 'Nisha', 'Chennai', 91, 'nisha@gmail.com'),
+(16, 'Suresh', 'Mumbai', 76, 'suresh@gmail.com'),
+(17, 'Kavya', 'Delhi', 89, 'kavya@gmail.com'),
+(18, 'Mahesh', 'Pune', 73, 'mahesh@gmail.com'),
+(19, 'Priya', 'Kolkata', 86, 'priya@gmail.com'),
+(20, 'Ramesh', 'Chennai', 80, 'ramesh@gmail.com');
+
+select * from students 
+where city in ('Mumbai','Pune','Kolkata');
+
+select * from students
+where city not in ('Delhi','Chennai');
+
+select * from students 
+where email is null;
+
+select * from students 
+where email is not null;
+
+select * from students 
+where name like 's%';
+
+select * from students 
+where name like '%a';
+
+select * from  students 
+where length(name) = 4;
+
+select * from  students 
+where name  not like 'r%'; 
